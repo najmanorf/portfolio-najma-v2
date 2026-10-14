@@ -1,0 +1,1102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Chattie — Najma Portfolio</title>
+  <link rel="icon" type="image/png" href="assets/head.png">
+  <link href="assets/favicon.png" rel="icon" type="image/png"/>
+
+  <style>
+    :root {
+      --paper: #fffdf7;
+      --card: #ffffff;
+      --ink: #29291f;
+      --muted: #77766b;
+      --gold: #a4861d;
+      --yellow: #ffef9e;
+      --line: #eee7d2;
+      --soft: #fff9e7;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    /* NAVBAR — IDENTICAL TO BUNDASEHAT */
+    .wrap {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(250, 248, 239, .88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(41, 41, 31, .08);
+    }
+
+    .nav-inner {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .brand img {
+      height: 70px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .nav .back-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+      text-decoration: none;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      white-space: nowrap;
+      margin-left: auto;
+      flex-shrink: 0;
+      transition: transform .2s, background .2s;
+    }
+
+    .nav .back-link:hover {
+      transform: translateY(-2px);
+      background: #fffefa;
+    }
+
+    /* PAGE */
+    .page {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 14px 30px 28px;
+    }
+
+    /* PROJECT TITLE AND SUMMARY */
+    .top-summary {
+      display: grid;
+      grid-template-columns: calc((100% - 28px) * .78 / 2.76 + 14px) minmax(0, 1fr);
+      gap: 0;
+      align-items: end;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .top-summary .hero {
+      margin: 0;
+    }
+
+    .top-summary .about {
+      margin: 0;
+      align-self: end;
+      padding-bottom: 2px;
+    }
+
+    .top-summary::after {
+      content: "✦";
+      position: absolute;
+      right: 8px;
+      top: 0;
+      color: #d9bd4f;
+      font-size: 23px;
+      opacity: .78;
+      pointer-events: none;
+      transform: rotate(10deg);
+    }
+
+    .eyebrow {
+      margin: 0 0 13px;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(32px, 3.3vw, 46px);
+      line-height: .98;
+      letter-spacing: -.065em;
+      font-weight: 850;
+    }
+
+    .subtitle {
+      margin: 6px 0 0;
+      color: #68685f;
+      font-size: 15px;
+    }
+
+    .about {
+      margin: 0 0 16px;
+      max-width: none;
+    }
+
+    .about h3 {
+      max-width: 900px;
+      margin: 0;
+      font-size: clamp(18px, 1.65vw, 24px);
+      line-height: 1.28;
+      letter-spacing: -.025em;
+      font-weight: 700;
+    }
+
+    /* CONTENT GRID */
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(210px, .78fr) minmax(300px, 1.12fr) minmax(220px, .86fr);
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .panel {
+      background: rgba(255, 255, 255, .9);
+      border: 1px solid var(--line);
+      border-radius: 25px;
+      padding: 20px;
+      min-width: 0;
+    }
+
+    .panel-label {
+      margin: 0 0 14px;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .meta-group {
+      margin-bottom: 14px;
+    }
+
+    .meta-label {
+      display: block;
+      margin-bottom: 9px;
+      color: #969184;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 10px 13px;
+      background: var(--yellow);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 750;
+    }
+
+    .pill.light {
+      background: #fffdf7;
+      border: 1px solid var(--line);
+      font-weight: 550;
+    }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .meta-value {
+      color: #68685f;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .prototype {
+      color: #786016;
+      font-size: 12px;
+      font-weight: 750;
+      text-decoration: none;
+      border-bottom: 1px solid #e0c653;
+      padding-bottom: 4px;
+    }
+
+    /* UI OVERVIEW */
+    .ui-panel {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ui-screenshots {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: center;
+      justify-items: center;
+      gap: clamp(10px, 1.4vw, 20px);
+      padding: 8px 0 0;
+    }
+
+    .screenshot-item {
+      width: 100%;
+      max-width: 170px;
+      margin: 0;
+      text-align: center;
+    }
+
+    .screenshot-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 19.5;
+      overflow: hidden;
+      border: 1px solid #e8dcae;
+      border-radius: 18px;
+      background: linear-gradient(145deg, #fff5cd, #fff);
+      box-shadow: 0 14px 26px rgba(48, 43, 24, .08);
+    }
+
+    .screenshot-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .screenshot-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 18px;
+      text-align: center;
+      color: #8b805f;
+      background: linear-gradient(145deg, #fff8df, #fffefa);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .placeholder-icon {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid #e4d8b6;
+      border-radius: 50%;
+      background: #fff0b2;
+      font-size: 20px;
+    }
+
+    .screenshot-placeholder strong {
+      font-size: 12px;
+    }
+
+    .screenshot-placeholder small {
+      font-size: 10px;
+      color: #a39a80;
+      overflow-wrap: anywhere;
+    }
+
+    .screenshot-item figcaption {
+      margin-top: 10px;
+      color: #68685f;
+      font-size: 11px;
+    }
+
+    /* PRODUCT OVERVIEW */
+    .product-overview {
+      margin: 0;
+      padding: 20px 18px;
+      background: rgba(255, 255, 255, .9);
+      border: 1px solid var(--line);
+      border-radius: 25px;
+      min-width: 0;
+    }
+
+    .product-overview-heading {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 18px;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .product-overview-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 29px;
+      height: 29px;
+      flex: 0 0 29px;
+      border-radius: 50%;
+      background: #fff2c5;
+      font-size: 15px;
+    }
+
+    .product-overview-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .product-overview-item {
+      min-width: 0;
+      padding: 0 0 14px;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .product-overview-item:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .product-overview-item h3 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 5px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .01em;
+    }
+
+    .product-overview-item h3 .product-overview-icon {
+      width: 25px;
+      height: 25px;
+      flex-basis: 25px;
+      font-size: 13px;
+    }
+
+    .product-overview-item p {
+      margin: 0;
+      color: #68685f;
+      font-size: 11px;
+      line-height: 1.55;
+    }
+
+    /* FEATURE SHOWCASE */
+    .feature-showcase {
+      margin-top: 56px;
+    }
+
+    .feature-intro {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 36px;
+      align-items: start;
+      margin-bottom: 22px;
+    }
+
+    .feature-intro h2 {
+      margin: 0;
+      font-size: clamp(26px, 3vw, 36px);
+      line-height: 1.12;
+      letter-spacing: -.045em;
+    }
+
+    .feature-intro .eyebrow {
+      margin-bottom: 14px;
+    }
+
+    .feature-intro p:last-child {
+      margin: 18px 0 0;
+      color: #77776e;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .feature-card {
+      display: grid;
+      grid-template-columns: .82fr 1.08fr;
+      overflow: hidden;
+      margin-top: 20px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: var(--card);
+    }
+
+    .feature-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      background: #fff8df;
+      border-right: 1px solid var(--line);
+    }
+
+    .feature-visual-inner {
+      width: 100%;
+      min-height: 250px;
+      aspect-ratio: 3 / 2;
+      padding: 0;
+      background: #fffefa;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .feature-visual-inner img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 250px;
+      object-fit: contain;
+    }
+
+    .feature-placeholder {
+      position: relative;
+      min-height: 250px;
+      border-radius: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 18px;
+      text-align: center;
+      color: #8b805f;
+      background: linear-gradient(145deg, #fff8df, #fffefa);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .feature-placeholder small {
+      font-size: 10px;
+      color: #a39a80;
+      overflow-wrap: anywhere;
+    }
+
+    .feature-copy {
+      padding: 34px 38px;
+    }
+
+    .feature-title {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin: 0 0 24px;
+      font-size: clamp(22px, 2.2vw, 29px);
+      letter-spacing: -.04em;
+      line-height: 1.2;
+    }
+
+    .feature-number {
+      color: var(--gold);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      white-space: nowrap;
+    }
+
+    .feature-detail {
+      padding: 18px 21px;
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fffdf7;
+    }
+
+    .feature-detail h4 {
+      margin: 0 0 9px;
+      color: #a46a45;
+      font-size: 10px;
+      font-weight: 850;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .feature-detail.solution h4 {
+      color: var(--gold);
+    }
+
+    .feature-detail p {
+      margin: 0;
+      color: #626258;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    /* CLICK-TO-ENLARGE IMAGE LIGHTBOX */
+    .image-zoom {
+      cursor: zoom-in;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .image-zoom:hover {
+      transform: scale(1.015);
+    }
+
+    .image-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      background: rgba(25, 24, 18, .86);
+      backdrop-filter: blur(8px);
+    }
+
+    .image-lightbox.open {
+      display: flex;
+    }
+
+    .image-lightbox img {
+      display: block;
+      max-width: min(100%, 1200px);
+      max-height: 88vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, .3);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255, 255, 255, .45);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .12);
+      color: #fff;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .lightbox-caption {
+      position: absolute;
+      bottom: 16px;
+      left: 20px;
+      right: 20px;
+      color: #fff;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1000px) {
+      .content-grid {
+        grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+      }
+
+      .product-overview {
+        grid-column: 1 / -1;
+      }
+
+      .product-overview-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 0;
+      }
+
+      .product-overview-item {
+        padding: 0 14px;
+        border-left: 1px solid var(--line);
+      }
+
+      .product-overview-item:nth-child(odd) {
+        padding-left: 0;
+        border-left: 0;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        padding: 18px 18px 26px;
+      }
+
+      .top-summary {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+
+      .top-summary .about {
+        padding-bottom: 0;
+      }
+
+      .top-summary::after {
+        right: 2px;
+        top: -4px;
+        font-size: 18px;
+      }
+
+      .hero {
+        margin-bottom: 14px;
+      }
+
+      .about {
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-overview {
+        grid-column: auto;
+      }
+
+      .product-overview-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 0;
+      }
+
+      .product-overview-item,
+      .product-overview-item:first-child,
+      .product-overview-item:last-child {
+        padding: 0 12px;
+        border-left: 1px solid var(--line);
+        border-bottom: 0;
+      }
+
+      .product-overview-item:nth-child(odd) {
+        padding-left: 0;
+        border-left: 0;
+      }
+
+      .ui-screenshots {
+        gap: 12px;
+      }
+
+      .feature-showcase {
+        margin-top: 38px;
+      }
+
+      .feature-intro {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .feature-intro p:last-child {
+        margin-top: 8px;
+      }
+
+      .feature-card {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-visual {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+        padding: 18px;
+      }
+
+      .feature-visual-inner {
+        min-height: 220px;
+      }
+
+      .feature-copy {
+        padding: 26px 22px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .wrap {
+        width: min(100% - 32px, 1180px);
+      }
+
+      .nav-inner {
+        height: 66px;
+      }
+
+      .brand img {
+        height: 60px;
+      }
+
+      .nav .back-link {
+        display: inline-flex;
+        padding: 10px 14px;
+        font-size: .82rem;
+      }
+
+      .image-lightbox {
+        padding: 18px;
+      }
+
+      .image-lightbox img {
+        max-height: 82vh;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .product-overview {
+        padding: 18px;
+      }
+
+      .product-overview-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .product-overview-item,
+      .product-overview-item:first-child,
+      .product-overview-item:nth-child(odd),
+      .product-overview-item:last-child {
+        padding: 0 0 14px;
+        border-left: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .product-overview-item:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .ui-screenshots {
+        gap: 8px;
+      }
+
+      .screenshot-item figcaption {
+        font-size: 9px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- CASE STUDY NAVIGATION -->
+  <nav class="nav" aria-label="Case study navigation">
+    <div class="wrap nav-inner">
+      <a class="brand" href="landingpage.html#work" aria-label="Back to portfolio projects">
+        <img alt="Najma Logo" src="assets/head.png"/>
+      </a>
+      <a class="back-link" href="landingpage.html#work" aria-label="Back to portfolio projects">
+        ← Back to Projects
+      </a>
+    </div>
+  </nav>
+
+  <main class="page">
+    <section aria-label="Project introduction" class="top-summary">
+      <header class="hero">
+        <p class="eyebrow">Product Case Study</p>
+        <h1 style="font-size:28px">Chattie</h1>
+        <p class="subtitle">Holistic Mental Health Platform</p>
+      </header>
+
+      <section aria-labelledby="about-title" class="about">
+        <h3 id="about-title">
+          A holistic mental health platform offering judgment-free emotional support, reflection tools, and accessible guidance.
+        </h3>
+      </section>
+    </section>
+
+    <section aria-label="Project details and interface overview" class="content-grid">
+      <aside class="panel">
+        <p class="panel-label">Project Overview</p>
+
+        <div class="meta-group">
+          <span class="pill">🏅 Finalist — Hackfest UI/UX Design 2026</span>
+        </div>
+
+        <div class="meta-group">
+          <span class="meta-label">My Role</span>
+          <span class="pill light">Product &amp; UI/UX Designer</span>
+        </div>
+
+        <div class="meta-group">
+          <span class="meta-label">Team</span>
+          <div class="pills">
+            <span class="pill light">UX Researcher</span>
+            <span class="pill light">UI/UX Designer</span>
+          </div>
+        </div>
+
+        <div class="meta-group">
+          <span class="meta-label">Timeline</span>
+          <div class="meta-value">March 1st – April 18th 2026</div>
+        </div>
+
+        <div class="meta-group">
+          <span class="meta-label">Prototype</span>
+          <a class="prototype" href="https://www.figma.com/proto/2mVga6HeTElFawC4GqAopz/Backburner-Team?node-id=75-383&p=f&t=bEXOKs8Q4hY8rKUG-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=301%3A1687" rel="noopener" target="_blank">
+            🔗 Try the prototype here ↗
+          </a>
+        </div>
+      </aside>
+
+      <section class="panel ui-panel">
+        <p class="panel-label">UI Overview</p>
+
+        <div class="ui-screenshots">
+          <figure class="screenshot-item">
+            <div class="screenshot-frame">
+              <img class="image-zoom project-shot" alt="Chattie Anonymous Support screen" src="assets/portfolio/chattie-capture1.png" tabindex="0" role="button" aria-label="Click to enlarge screenshot" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <div class="screenshot-placeholder" style="display:none">
+                <span class="placeholder-icon">▣</span>
+                <strong>Anonymous Support</strong>
+                <small>Add screenshot: chattie-capture1.png</small>
+              </div>
+            </div>
+            <figcaption>Anonymous Support</figcaption>
+          </figure>
+
+          <figure class="screenshot-item">
+            <div class="screenshot-frame">
+              <img class="image-zoom project-shot" alt="Chattie Chattie Journal screen" src="assets/portfolio/chattie-capture2.png" tabindex="0" role="button" aria-label="Click to enlarge screenshot" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <div class="screenshot-placeholder" style="display:none">
+                <span class="placeholder-icon">▣</span>
+                <strong>Chattie Journal</strong>
+                <small>Add screenshot: chattie-capture2.png</small>
+              </div>
+            </div>
+            <figcaption>Chattie Journal</figcaption>
+          </figure>
+
+          <figure class="screenshot-item">
+            <div class="screenshot-frame">
+              <img class="image-zoom project-shot" alt="Chattie Learning &amp; Guidance screen" src="assets/portfolio/chattie-capture3.png" tabindex="0" role="button" aria-label="Click to enlarge screenshot" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <div class="screenshot-placeholder" style="display:none">
+                <span class="placeholder-icon">▣</span>
+                <strong>Learning &amp; Guidance</strong>
+                <small>Add screenshot: chattie-capture3.png</small>
+              </div>
+            </div>
+            <figcaption>Learning &amp; Guidance</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section aria-labelledby="product-overview-title" class="product-overview">
+        <h2 class="product-overview-heading" id="product-overview-title">Product Overview</h2>
+
+        <div class="product-overview-grid">
+          <article class="product-overview-item">
+            <h3><span aria-hidden="true" class="product-overview-icon">🫂</span>Target Users</h3>
+            <p>Students, young adults, and early-career professionals.</p>
+          </article>
+
+          <article class="product-overview-item">
+            <h3><span aria-hidden="true" class="product-overview-icon">💬</span>Solution</h3>
+            <p>Anonymous peer support, journaling, psychologist access, and learning videos.</p>
+          </article>
+
+          <article class="product-overview-item">
+            <h3><span aria-hidden="true" class="product-overview-icon">🧠</span>Problem</h3>
+            <p>The project highlights mental health challenges among Indonesian adolescents.</p>
+          </article>
+
+          <article class="product-overview-item">
+            <h3><span aria-hidden="true" class="product-overview-icon">🌱</span>Product Goal</h3>
+            <p>Make mental well-being easier to maintain with accessible, judgment-free support.</p>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <section aria-labelledby="feature-showcase-title" class="feature-showcase">
+      <div class="feature-intro">
+        <div>
+          <p class="eyebrow">Feature Showcase</p>
+          <h2 id="feature-showcase-title">Designed around real user needs.</h2>
+        </div>
+      </div>
+
+      <article class="feature-card">
+        <div aria-label="Feature visual placeholder" class="feature-visual">
+          <div class="feature-visual-inner">
+            <img class="image-zoom project-shot" alt="Chattie Anonymous Chattie feature screenshot" loading="lazy" src="assets/portfolio/chattie-feature1.png" tabindex="0" role="button" aria-label="Click to enlarge screenshot" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="feature-placeholder" style="display:none">
+              <span class="placeholder-icon">✦</span>
+              <strong>Anonymous Chattie</strong>
+              <small>Add screenshot: chattie-feature1.png</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-copy">
+          <h3 class="feature-title"><span class="feature-number">01</span>Anonymous Chattie</h3>
+          <div class="feature-detail">
+            <h4>Problem</h4>
+            <p>Users may fear being judged, seen as a burden, or exposing personal thoughts when sharing emotional struggles.</p>
+          </div>
+          <div class="feature-detail solution">
+            <h4>Feature Solution</h4>
+            <p>An anonymous chat space lets users share feelings and seek support without revealing their identity.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="feature-card">
+        <div aria-label="Feature visual placeholder" class="feature-visual">
+          <div class="feature-visual-inner">
+            <img class="image-zoom project-shot" alt="Chattie Psychologist Chattie feature screenshot" loading="lazy" src="assets/portfolio/chattie-feature2.png" tabindex="0" role="button" aria-label="Click to enlarge screenshot" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="feature-placeholder" style="display:none">
+              <span class="placeholder-icon">✦</span>
+              <strong>Psychologist Chattie</strong>
+              <small>Add screenshot: chattie-feature2.png</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-copy">
+          <h3 class="feature-title"><span class="feature-number">02</span>Psychologist Chattie</h3>
+          <div class="feature-detail">
+            <h4>Problem</h4>
+            <p>Professional mental health services can feel too expensive or difficult to access for students and young adults.</p>
+          </div>
+          <div class="feature-detail solution">
+            <h4>Feature Solution</h4>
+            <p>Affordable support from licensed psychologists, including free sessions with volunteer psychologists.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="feature-card">
+        <div aria-label="Feature visual placeholder" class="feature-visual">
+          <div class="feature-visual-inner">
+            <img class="image-zoom project-shot" alt="Chattie Chattie Journal feature screenshot" loading="lazy" src="assets/portfolio/chattie-feature3.png" tabindex="0" role="button" aria-label="Click to enlarge screenshot" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="feature-placeholder" style="display:none">
+              <span class="placeholder-icon">✦</span>
+              <strong>Chattie Journal</strong>
+              <small>Add screenshot: chattie-feature3.png</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-copy">
+          <h3 class="feature-title"><span class="feature-number">03</span>Chattie Journal</h3>
+          <div class="feature-detail">
+            <h4>Problem</h4>
+            <p>Users may struggle to understand their emotional condition and lack a simple way to reflect on daily feelings.</p>
+          </div>
+          <div class="feature-detail solution">
+            <h4>Feature Solution</h4>
+            <p>A guided daily journal supports emotional reflection with personalized AI-based insights.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="feature-card">
+        <div aria-label="Feature visual placeholder" class="feature-visual">
+          <div class="feature-visual-inner">
+            <img class="image-zoom project-shot" alt="Chattie Chattie Learning feature screenshot" loading="lazy" src="assets/portfolio/chattie-feature4.png" tabindex="0" role="button" aria-label="Click to enlarge screenshot" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="feature-placeholder" style="display:none">
+              <span class="placeholder-icon">✦</span>
+              <strong>Chattie Learning</strong>
+              <small>Add screenshot: chattie-feature4.png</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-copy">
+          <h3 class="feature-title"><span class="feature-number">04</span>Chattie Learning</h3>
+          <div class="feature-detail">
+            <h4>Problem</h4>
+            <p>Limited mental health education can leave users unsure about their condition and what steps to take next.</p>
+          </div>
+          <div class="feature-detail solution">
+            <h4>Feature Solution</h4>
+            <p>Personalized learning videos cover emotions, coping strategies, and well-being.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <div class="image-lightbox" id="imageLightbox" role="dialog" aria-modal="true" aria-label="Expanded project image">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image preview">×</button>
+    <img id="lightboxImage" src="" alt="">
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+
+  <script>
+    // Expand project screenshots in a lightbox.
+    const imageLightbox = document.getElementById('imageLightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    function openImageLightbox(image) {
+      lightboxImage.src = image.currentSrc || image.src;
+      lightboxImage.alt = image.alt || 'Expanded project screenshot';
+
+      const caption = image.closest('figure')
+        ?.querySelector('figcaption')
+        ?.textContent.trim();
+
+      lightboxCaption.textContent = caption || image.alt || '';
+      imageLightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      lightboxClose.focus();
+    }
+
+    function closeImageLightbox() {
+      imageLightbox.classList.remove('open');
+      lightboxImage.src = '';
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.image-zoom').forEach((image) => {
+      if (image.style.display === 'none') return;
+
+      image.addEventListener('click', () => openImageLightbox(image));
+
+      image.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openImageLightbox(image);
+        }
+      });
+    });
+
+    lightboxClose.addEventListener('click', closeImageLightbox);
+
+    imageLightbox.addEventListener('click', (event) => {
+      if (event.target === imageLightbox) {
+        closeImageLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && imageLightbox.classList.contains('open')) {
+        closeImageLightbox();
+      }
+    });
+  </script>
+</body>
+</html>

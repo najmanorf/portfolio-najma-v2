@@ -1,0 +1,2994 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Najma - Portfolio
+  </title>
+  <link rel="icon" type="image/png" href="assets/head.png">
+  <meta content="Najma Noorfitri's Product Management and product design portfolio." name="description"/>
+  <style>
+   /* =========================================================
+   GLOBAL STYLES: colors, typography, spacing, and components
+   Edit the variables in :root to update the overall theme.
+   ========================================================= */
+:root
+{
+  --bg:#f7f5ef;
+  --paper:#fffefa;
+  --ink:#25251f;
+  --muted:#77786f;
+  --line:#e5e0d3;
+  --accent:#d6b83f;
+  --accent-light:#f4e8a8;
+  --dark:#26271f;
+  --radius:22px;
+  --max:1180px
+}
+*
+{
+  box-sizing:border-box
+}
+html
+{
+  scroll-behavior:smooth;
+  scroll-padding-top:90px
+}
+body
+{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.55
+}
+a
+{
+  color:inherit;
+  text-decoration:none
+}
+button
+{
+  font:inherit
+}
+.wrap
+{
+  width:min(var(--max),calc(100% - 48px));
+  margin:auto
+}
+/* NAVIGATION BAR */
+.nav
+{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(247,245,239,.88);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(37,37,31,.08)
+}
+.nav-inner
+{
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between
+}
+.brand
+{
+  font-weight:850;
+  letter-spacing:-.04em;
+  font-size:1.15rem
+}
+.brand span
+{
+  color:#a18419
+}
+.nav-links
+{
+  display:flex;
+  gap:28px;
+  align-items:center
+}
+.nav-links a
+{
+  font-size:.9rem;
+  color:var(--muted);
+  transition:color .2s
+}
+.nav-links a:hover,.nav-links a.active
+{
+  color:var(--ink)
+}
+.nav-cta,.button
+{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  padding:12px 18px;
+  border-radius:999px;
+  background:var(--dark);
+  color:white;
+  font-weight:650;
+  font-size:.9rem;
+  border:1px solid var(--dark);
+  transition:transform .2s,background .2s
+}
+.button:hover,.nav-cta:hover
+{
+  transform:translateY(-2px);
+  background:#444537
+}
+.menu-toggle
+{
+  display:none;
+  background:none;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:8px 11px;
+  font-size:1.2rem
+}
+/* HOME / HERO SECTION */
+.hero
+{
+  padding:34px 0 48px;
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:54px;
+  align-items:center;
+  min-height:560px
+}
+.eyebrow
+{
+  text-transform:uppercase;
+  letter-spacing:.17em;
+  font-size:.72rem;
+  font-weight:800;
+  color:#967817
+}
+h1,h2,h3,p
+{
+  margin-top:0
+}
+h1
+{
+  font-size:clamp(3.2rem,7vw,6.1rem);
+  line-height:.98;
+  letter-spacing:-.075em;
+  margin:18px 0 22px;
+  max-width:760px
+}
+.hero .highlight
+{
+  position:relative;
+  z-index:0;
+  white-space:nowrap
+}
+.hero .highlight:after
+{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  left:0;
+  right:-3px;
+  bottom:5px;
+  height:23%;
+  background:var(--accent-light);
+  transform:rotate(-1.5deg);
+  border-radius:5px
+}
+.hero-lead
+{
+  font-size:clamp(1.15rem,2vw,1.4rem);
+  max-width:620px;
+  color:#53544b;
+  line-height:1.6
+}
+.hero-copy
+{
+  max-width:630px;
+  color:var(--muted);
+  font-size:1rem
+}
+.hero-actions
+{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:28px
+}
+.button.secondary
+{
+  background:transparent;
+  color:var(--ink);
+  border-color:var(--line)
+}
+.button.secondary:hover
+{
+  background:#fff
+}
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 22px;
+}
+.social-links a {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(38, 39, 31, 0.045);
+  color: var(--muted);
+  font-size: 1.25rem;
+  border: 1px solid transparent;
+  transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.social-links a:hover {
+  color: var(--ink);
+  background: var(--accent-light);
+  border-color: var(--line);
+  transform: translateY(-3px);
+}
+.social-links a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.hero-art
+{
+  position:relative;
+  min-height:390px;
+  display:grid;
+  place-items:center
+}
+.portrait-frame
+{
+  width:min(100%,355px);
+  aspect-ratio:4/5;
+  border-radius:48% 48% 24px 24px;
+  overflow:hidden;
+  background:#e8dfbd;
+  position:relative;
+  transform:rotate(2deg);
+  box-shadow:0 25px 65px #33321a1a
+}
+.portrait-frame img
+{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center
+}
+.floating-note
+{
+  position:absolute;
+  right:-4px;
+  bottom:25px;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:16px 19px;
+  box-shadow:0 15px 35px #24241b12;
+  transform:rotate(-3deg)
+}
+.floating-note strong
+{
+  display:block;
+  font-size:1.25rem
+}
+.floating-note span
+{
+  font-size:.78rem;
+  color:var(--muted)
+}
+.spark
+{
+  position:absolute;
+  top:25px;
+  left:3%;
+  font-size:2rem;
+  color:#b39a36
+}
+/* SHARED SECTION LAYOUTS */
+.section
+{
+  padding:76px 0
+}
+.section-head
+{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:24px;
+  margin-bottom:32px
+}
+.section-head h2
+{
+  font-size:clamp(2rem,4vw,3.4rem);
+  letter-spacing:-.06em;
+  line-height:1.05;
+  margin:10px 0 0
+}
+.section-head p
+{
+  max-width:420px;
+  color:var(--muted);
+  margin:0
+}
+.about-strip
+{
+  background:var(--dark);
+  color:#f9f7ee;
+  border-radius:var(--radius);
+  padding:30px 34px;
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
+  gap:35px;
+  align-items:center
+}
+.about-strip h3
+{
+  font-size:1.35rem;
+  letter-spacing:-.03em;
+  margin:0
+}
+.about-strip p
+{
+  margin:0;
+  color:#c6c6ba
+}
+.stats
+{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+  margin-top:24px
+}
+.stat
+{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:16px 17px;
+  min-width:0;
+  box-shadow:0 8px 24px rgba(38,39,31,.045);
+  transition:transform .2s,border-color .2s
+}
+.stat:hover
+{
+  transform:translateY(-3px);
+  border-color:#d6b83f
+}
+.stat strong
+{
+  font-size:1.65rem;
+  line-height:1.2;
+  display:block;
+  color:var(--ink);
+  letter-spacing:-.04em;
+  color:#f1dc75
+}
+.stat span
+{
+  font-size:.78rem;
+  color:#c6c6ba
+}
+/* PORTFOLIO PROJECT CARDS AND FILTERS */
+.portfolio-section
+{
+  padding-top:88px
+}
+.filters
+{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:24px
+}
+.filter-btn
+{
+  border:1px solid var(--line);
+  background:transparent;
+  border-radius:999px;
+  padding:9px 15px;
+  font-size:.84rem;
+  color:var(--muted);
+  cursor:pointer;
+  transition:.2s
+}
+.filter-btn:hover,.filter-btn.active
+{
+  background:var(--dark);
+  border-color:var(--dark);
+  color:white
+}
+.project-grid
+{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:22px
+}
+.project-card
+{
+  background:var(--paper);
+  border:1px solid var(--line);
+  padding:12px;
+  border-radius:20px;
+  cursor:pointer;
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+  min-width:0
+}
+.project-card:hover,.project-card:focus-visible
+{
+  transform:translateY(-5px);
+  box-shadow:0 18px 45px #29281712;
+  border-color:#d4c57e;
+  outline:none
+}
+.project-card[hidden]
+{
+  display:none
+}
+/* Keep every linked card in normal grid flow during filtering and Show More. */
+.project-grid > a {
+  display: block;
+  min-width: 0;
+  height: 100%;
+}
+.project-grid > a[hidden] {
+  display: none !important;
+}
+.project-grid > a > .project-card {
+  height: 100%;
+}
+.project-card[hidden] {
+  display: none !important;
+}
+.project-image
+{
+  aspect-ratio:1.28/1;
+  border-radius:13px;
+  overflow:hidden;
+  position:relative;
+  background:#eee8d8
+}
+.project-image img
+{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .45s
+}
+.project-card:hover .project-image img
+{
+  transform:scale(1.04)
+}
+.card-arrow
+{
+  position:absolute;
+  right:12px;
+  top:12px;
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  background:var(--paper);
+  border-radius:50%;
+  font-size:1.1rem
+}
+.project-meta
+{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  margin:16px 4px 6px;
+  color:#8b7621;
+  font-size:.73rem;
+  font-weight:750;
+  text-transform:uppercase;
+  letter-spacing:.06em
+}
+.project-card h3
+{
+  font-size:1.35rem;
+  letter-spacing:-.04em;
+  margin:0 4px 7px
+}
+.project-card p
+{
+  color:var(--muted);
+  font-size:.88rem;
+  margin:0 4px 8px;
+  min-height:44px
+}
+/* EXPERIENCE, EDUCATION, AND SKILLS */
+.experience-grid
+{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px
+}
+.experience-card
+{
+  border:1px solid var(--line);
+  background:var(--paper);
+  border-radius:18px;
+  padding:24px
+}
+.experience-card .date
+{
+  color:#967817;
+  font-size:.76rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase
+}
+.experience-card h3
+{
+  margin:10px 0 4px;
+  font-size:1.2rem
+}
+.experience-card .org
+{
+  color:var(--muted);
+  font-size:.9rem;
+  margin-bottom:14px
+}
+.experience-card p
+{
+  font-size:.9rem;
+  color:#66675e;
+  margin:0
+}
+.experience-tags
+{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:16px
+}
+.experience-tags .skill
+{
+  display:inline-flex;
+  align-items:center;
+  line-height:1.35
+}
+.skills
+{
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+  margin-top:22px
+}
+.skill
+{
+  border:1px solid var(--line);
+  background:var(--paper);
+  padding:8px 12px;
+  border-radius:999px;
+  font-size:.82rem;
+  color:#5e5f56
+}
+/* CONTACT SECTION AND FOOTER */
+.contact
+{
+  background:#eae3c8;
+  border-radius:26px;
+  padding:clamp(28px,5vw,55px);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px
+}
+.contact h2
+{
+  font-size:clamp(2.2rem,4vw,3.6rem);
+  letter-spacing:-.06em;
+  line-height:1.05;
+  margin:12px 0
+}
+.contact p
+{
+  max-width:520px;
+  color:#626257;
+  margin:0
+}
+footer
+{
+  padding:28px 0;
+  color:var(--muted);
+  font-size:.82rem
+}
+.footer-inner
+{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  flex-wrap:wrap
+}
+/* PROJECT DETAIL MODAL */
+.modal-backdrop
+{
+  position:fixed;
+  inset:0;
+  background:#171811a8;
+  z-index:50;
+  display:none;
+  place-items:center;
+  padding:20px
+}
+.modal-backdrop.open
+{
+  display:grid
+}
+.modal
+{
+  width:min(520px,100%);
+  background:var(--paper);
+  border-radius:22px;
+  padding:28px;
+  position:relative;
+  box-shadow:0 25px 90px #0004;
+  animation:pop .18s ease-out
+}
+@keyframes pop
+{
+  from
+  {
+    transform:translateY(10px);
+    opacity:0
+  }
+  to
+  {
+    transform:translateY(0);
+    opacity:1
+  }
+}
+.modal-close
+{
+  position:absolute;
+  right:16px;
+  top:14px;
+  border:1px solid var(--line);
+  background:white;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:1.2rem
+}
+.modal .eyebrow
+{
+  padding-right:45px
+}
+.modal h3
+{
+  font-size:2rem;
+  letter-spacing:-.05em;
+  margin:12px 0
+}
+.modal p
+{
+  color:var(--muted)
+}
+.modal-role
+{
+  display:inline-block;
+  background:var(--accent-light);
+  padding:7px 11px;
+  border-radius:999px;
+  font-size:.8rem;
+  font-weight:700
+}
+/* SCROLL REVEAL ANIMATION */
+.reveal
+{
+  opacity:0;
+  transform:translateY(16px);
+  transition:opacity .6s ease,transform .6s ease
+}
+.reveal.visible
+{
+  opacity:1;
+  transform:none
+}
+@media(max-width:850px)
+{
+  .hero
+  {
+    grid-template-columns:1fr .7fr;
+    gap:24px;
+    padding-top:65px
+  }
+  .project-grid
+  {
+    grid-template-columns:repeat(2,minmax(0,1fr))
+  }
+  .about-strip
+  {
+    grid-template-columns:1fr;
+    gap:16px
+  }
+  .section-head
+  {
+    align-items:start;
+    flex-direction:column
+  }
+}
+@media(max-width:620px)
+{
+  .wrap
+  {
+    width:min(100% - 32px,var(--max))
+  }
+  .nav-inner
+  {
+    height:66px
+  }
+  .menu-toggle
+  {
+    display:block
+  }
+  .nav-cta
+  {
+    display:none
+  }
+  .nav-links
+  {
+    display:none;
+    position:absolute;
+    top:65px;
+    left:0;
+    right:0;
+    background:var(--bg);
+    padding:18px 24px 22px;
+    border-bottom:1px solid var(--line);
+    flex-direction:column;
+    align-items:flex-start;
+    gap:18px
+  }
+  .nav-links.open
+  {
+    display:flex
+  }
+  .hero
+  {
+    grid-template-columns:1fr;
+    padding:55px 0 50px;
+    min-height:0
+  }
+  h1
+  {
+    font-size:clamp(3.2rem,16vw,5rem)
+  }
+  .hero-art
+  {
+    min-height:310px;
+    grid-row:1
+  }
+  .portrait-frame
+  {
+    width:230px
+  }
+  .floating-note
+  {
+    right:5%;
+    bottom:12px
+  }
+  .spark
+  {
+    left:10%;
+    top:5px
+  }
+  .section
+  {
+    padding:55px 0
+  }
+  .project-grid
+  {
+    grid-template-columns:1fr
+  }
+  .project-image
+  {
+    aspect-ratio:1.25/1
+  }
+  .experience-grid
+  {
+    grid-template-columns:1fr
+  }
+  .contact
+  {
+    align-items:flex-start;
+    flex-direction:column
+  }
+  .about-strip
+  {
+    padding:25px
+  }
+  .stats
+  {
+    gap:22px
+  }
+}
+@media(prefers-reduced-motion:reduce)
+{
+  *,*::before,*::after
+  {
+    scroll-behavior:auto!important;
+    animation:none!important;
+    transition:none!important
+  }
+  .reveal
+  {
+    opacity:1;
+    transform:none
+  }
+}
+/* HERO SUMMARY AND METRICS */
+.home-summary
+{
+  margin-top:24px;
+  max-width:620px
+}
+.home-summary>p
+{
+  color:var(--muted);
+  max-width:580px;
+  margin:0 0 20px
+}
+.home-summary .stats
+{
+  margin-top:16px;
+  padding-top:18px;
+  border-top:1px solid var(--line)
+}
+.home-summary .stat strong
+{
+  color:var(--dark)
+}
+.home-summary .stat span
+{
+  color:var(--muted)
+}
+.achievement-grid
+{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px
+}
+.achievement-card
+{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:22px;
+  min-width:0;
+  cursor:pointer;
+  transition:transform .2s,border-color .2s,box-shadow .2s;
+  text-align:left;
+  color:inherit;
+  font:inherit;
+  width:100%
+}
+.achievement-card:hover,.achievement-card:focus-visible
+{
+  transform:translateY(-4px);
+  border-color:var(--accent);
+  box-shadow:0 14px 34px #24241b12;
+  outline:none
+}
+.achievement-card .view-gallery
+{
+  display:inline-block;
+  margin-top:14px;
+  color:#967817;
+  font-size:.78rem;
+  font-weight:750
+}
+.achievement-card h3
+{
+  font-size:1.15rem;
+  line-height:1.2;
+  letter-spacing:-.03em;
+  margin:12px 0 8px
+}
+.achievement-card p
+{
+  font-size:.88rem;
+  color:var(--muted);
+  margin:0
+}
+.achievement-card .date
+{
+  color:#967817;
+  font-size:.73rem;
+  font-weight:800;
+  letter-spacing:.07em;
+  text-transform:uppercase
+}
+@media(max-width:850px)
+{
+  .achievement-grid
+  {
+    grid-template-columns:repeat(2,minmax(0,1fr))
+  }
+}
+@media(max-width:620px)
+{
+  .achievement-grid
+  {
+    grid-template-columns:1fr
+  }
+  .home-summary .stats
+  {
+    grid-template-columns:1fr
+  }
+  .hero
+  {
+    padding:24px 0 36px
+  }
+}
+.gallery-modal
+{
+  position:fixed;
+  inset:0;
+  background:rgba(25,25,21,.72);
+  z-index:100;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px
+}
+.gallery-modal.open
+{
+  display:flex
+}
+.gallery-dialog
+{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:22px;
+  width:min(1000px,100%);
+  max-height:92vh;
+  padding:26px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  box-shadow:0 25px 90px #0003
+}
+.gallery-head
+{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:18px
+}
+.gallery-head h3
+{
+  margin:0 0 4px;
+  font-size:1.3rem
+}
+.gallery-head p
+{
+  margin:0;
+  color:var(--muted);
+  font-size:.88rem
+}
+.gallery-close
+{
+  border:1px solid var(--line);
+  background:transparent;
+  border-radius:50%;
+  width:38px;
+  height:38px;
+  font-size:1.3rem;
+  cursor:pointer;
+  flex-shrink:0
+}
+.gallery-stage
+{
+  position:relative;
+  width:100%;
+  display:grid;
+  place-items:center;
+  padding:0 54px
+}
+.gallery-track
+{
+  width:100%;
+  display:grid;
+  place-items:center;
+  overflow:hidden
+}
+.gallery-track img
+{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:62vh;
+  aspect-ratio:1.414/1;
+  object-fit:contain;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:#eee9da
+}
+.gallery-arrow
+{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:44px;
+  height:44px;
+  border:1px solid var(--line);
+  border-radius:50%;
+  background:var(--paper);
+  box-shadow:0 5px 18px #24241b18;
+  display:grid;
+  place-items:center;
+  font-size:1.55rem;
+  line-height:1;
+  cursor:pointer;
+  z-index:2
+}
+.gallery-arrow:hover
+{
+  border-color:var(--accent);
+  background:#fff9df
+}
+.gallery-arrow:disabled
+{
+  opacity:.35;
+  cursor:not-allowed
+}
+.gallery-arrow.prev
+{
+  left:0
+}
+.gallery-arrow.next
+{
+  right:0
+}
+.gallery-controls
+{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px
+}
+.gallery-hint
+{
+  font-size:.84rem;
+  color:var(--muted)
+}
+@media(max-width:620px)
+{
+  .gallery-dialog
+  {
+    padding:18px
+  }
+  .gallery-stage
+  {
+    padding:0 40px
+  }
+  .gallery-arrow
+  {
+    width:34px;
+    height:34px;
+    font-size:1.25rem
+  }
+  .gallery-track img
+  {
+    max-height:55vh
+  }
+}
+  
+/* FULL-SCREEN PHOTO CAROUSEL SECTION */
+.life-carousel-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: 60px 0;
+}
+.life-carousel-section .section-head {
+  width: min(var(--max), calc(100% - 48px));
+  margin: 0 auto 36px;
+}
+.photo-carousel-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+.photo-carousel {
+  padding: 4px 0;
+  overflow: hidden;
+  width: 100%;
+}
+.photo-carousel-track {
+  display: flex;
+  width: max-content;
+  gap: 18px;
+  animation: photo-carousel-scroll 38s linear infinite;
+}
+.photo-carousel.reverse .photo-carousel-track {
+  animation-name: photo-carousel-scroll-reverse;
+  animation-duration: 44s;
+}
+.photo-carousel:hover .photo-carousel-track,
+.photo-carousel:focus-within .photo-carousel-track {
+  animation-play-state: paused;
+}
+.photo-carousel-item {
+  display: block;
+  width: clamp(260px, 26vw, 440px);
+  height: clamp(175px, 16vw, 270px);
+  overflow: hidden;
+  border-radius: 22px;
+  flex-shrink: 0;
+  background: #e9e5d9;
+}
+.photo-carousel-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s ease;
+}
+.photo-carousel-item:hover img {
+  transform: scale(1.04);
+}
+@keyframes photo-carousel-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes photo-carousel-scroll-reverse {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+@media (max-width: 620px) {
+  .life-carousel-section { padding: 36px 0; }
+  .life-carousel-section .section-head { width: min(100% - 32px, var(--max)); margin-bottom: 22px; }
+  .photo-carousel-stack { gap: 14px; }
+  .photo-carousel-track { gap: 14px; animation-duration: 30s; }
+  .photo-carousel.reverse .photo-carousel-track { animation-duration: 34s; }
+  .photo-carousel-item {
+    width: 82vw;
+    height: 52vw;
+    border-radius: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .photo-carousel-track { animation: none; }
+}
+
+/* BUTTERY YELLOW REFRESH — visual styling only */
+:root{
+  --bg:#fffdf7;
+  --paper:#ffffff;
+  --ink:#29291f;
+  --muted:#77766b;
+  --line:#eee7d2;
+  --accent:#d9b943;
+  --accent-light:#fff0a8;
+  --dark:#29291f;
+}
+body{background:var(--bg)}
+.nav{background:rgba(255,253,247,.90);border-bottom-color:#eee7d2}
+.brand span,.eyebrow,.experience-card .date,.achievement-card .date,.project-meta{color:#a4861d}
+.hero .highlight:after{background:#fff0a8}
+.about-strip{background:#302f25}
+.contact{background:#fff3bd}
+.stat strong{color:#d5b642}
+.filter-btn:hover,.filter-btn.active{background:#302f25;border-color:#302f25}
+.project-card:hover,.project-card:focus-visible,.achievement-card:hover,.achievement-card:focus-visible{border-color:#e1c95f}
+.portrait-frame{background:#fff1b8}
+.floating-note{background:#fffef9}
+.skill{background:#fffefb}
+.gallery-arrow:hover{background:#fff7d9}
+/* Small, airy decorative accents */
+.hero-art:before{
+  content:"✳";position:absolute;top:8px;right:7%;color:#d9bd4f;
+  font-size:25px;opacity:.82;transform:rotate(12deg);pointer-events:none;
+}
+.hero-art:after{
+  content:"✦";position:absolute;bottom:15%;left:1%;color:#e8cf69;
+  font-size:17px;opacity:.78;pointer-events:none;
+}
+@media(max-width:620px){.hero-art:before{right:12%}.hero-art:after{left:8%}}
+  </style>
+  <!-- Favicon: keep the image at assets/favicon.png, or update this path. -->
+  <link href="assets/favicon.png" rel="icon" type="image/png"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <!-- ==================== NAVIGATION ==================== -->
+  <style>
+   .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .brand img {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-left: 0;
+  }
+
+  .nav-cta {
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .nav-inner {
+      gap: 16px;
+    }
+
+    .nav-links {
+      gap: 16px;
+    }
+  }
+  </style>
+  <nav class="nav">
+   <div class="wrap nav-inner">
+    <a class="brand" href="#home">
+     <img alt="Najma Logo" src="assets/head.png"/>
+    </a>
+    <button aria-expanded="false" aria-label="Toggle navigation" class="menu-toggle" id="menuToggle">
+     ☰
+    </button>
+    <div class="nav-links" id="navLinks">
+     <a class="active" href="#home">
+      Home
+     </a>
+     <a href="#life-lately">
+      Gallery
+     </a>
+     <a href="#work">
+      Project
+     </a>
+     <a href="#experience">
+      Experience
+     </a>
+     <a href="#achievements">
+      Achievement
+     </a>
+     <a href="#credentials">
+      Education
+    <a href="#contact">
+      Contact
+     </a>
+    </div>
+    <a class="nav-cta" href="https://www.linkedin.com/in/najmanorf/" rel="noopener" target="_blank">
+     Let's connect &nearrow;
+    </a>
+   </div>
+  </nav>
+  <!-- ==================== MAIN PAGE CONTENT ==================== -->
+  <main>
+   <!-- HOME: introduction, social links, profile photo, and overview metrics. -->
+   <section class="wrap hero" id="home">
+    <div class="hero-content reveal">
+     <div class="eyebrow">
+      Product Discovery &middot; Product Strategy &middot; Product Management
+     </div>
+     <h1>
+      Hi, I'm
+      <span class="highlight">
+       Najma.
+      </span>
+     </h1>
+     <p class="hero-lead">
+      I connect the dots between people, problems, and products.
+     </p>
+     <div class="home-summary reveal">
+      <div class="stats">
+       <div class="stat">
+        <strong>
+         Top 10
+        </strong>
+        <span>
+         Outstanding Students
+        </span>
+       </div>
+       <div class="stat">
+        <strong>
+         14
+        </strong>
+        <span>
+         Products Delivered
+        </span>
+       </div>
+       <div class="stat">
+        <strong>
+         15+
+        </strong>
+        <span>
+         IT &amp; Public Speaking Awards
+        </span>
+       </div>
+      </div>
+      <div class="hero-actions">
+       <a class="button" href="#work">
+        Explore my work
+       </a>
+       <a class="button secondary" href="https://drive.google.com/file/d/1eZ7tOOasWztpqL5L3Pwmk_A5sjSbeatX/view?usp=sharing" rel="noopener" target="_blank">
+        View CV &nearrow;
+       </a>
+      </div>
+      <div aria-label="Social links" class="social-links">
+       <a aria-label="LinkedIn" href="https://www.linkedin.com/in/najmanorf/" rel="noopener noreferrer" target="_blank">
+        <i aria-hidden="true" class="bi bi-linkedin">
+        </i>
+       </a>
+       <a aria-label="Send email via Gmail" class="contact-item" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=najmanoorfitri14@gmail.com" rel="noopener noreferrer" target="_blank">
+        <i aria-hidden="true" class="bi bi-envelope">
+        </i>
+       </a>
+       <a aria-label="Instagram" class="instagram" href="https://www.instagram.com/najmanorf/" rel="noopener noreferrer" target="_blank">
+        <i aria-hidden="true" class="bi bi-instagram">
+        </i>
+       </a>
+      </div>
+     </div>
+    </div>
+    <div class="hero-art reveal">
+     <span class="spark">
+      ✳
+     </span>
+     <!-- PROFILE IMAGE: replace assets/profile.png with your portrait path. -->
+     <div class="portrait-frame">
+      <img alt="Portrait of Najma" src="assets/profile.png"/>
+     </div>
+     <div class="floating-note">
+      <strong>
+       4.00 / 4.00
+      </strong>
+      <span>
+       University GPA
+      </span>
+     </div>
+    </div>
+   </section>
+   <!-- FULL-SCREEN PHOTO CAROUSEL: replace each href and image src with your own links. -->
+   <section aria-label="Life lately photo highlights" class="life-carousel-section" id="life-lately">
+    <div class="section-head reveal">
+     <div>
+      <div class="eyebrow">
+       Beyond the Screen
+      </div>
+      <h2>
+       A Peek Into My World.
+      </h2>
+     </div>
+     <p>
+      A few moments, memories, and experiences along the way.
+     </p>
+    </div>
+    <div aria-label="Photo highlights row one" class="photo-carousel">
+    <div class="photo-carousel-track">
+        <a aria-label="Photo highlight 1" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 1" loading="lazy" src="assets/carousel/1.jpg"/>
+        </a>
+        <a aria-label="Photo highlight 2" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 2" loading="lazy" src="assets/carousel/2.jpeg"/>
+        </a>
+        <a aria-label="Photo highlight 3" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 3" loading="lazy" src="assets/carousel/3.jpg"/>
+        </a>
+        <a aria-label="Photo highlight 4" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 4" loading="lazy" src="assets/carousel/4.jpg"/>
+        </a>
+        <a aria-label="Photo highlight 5" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 5" loading="lazy" src="assets/carousel/5.png"/>
+        </a>
+        <a aria-label="Photo highlight 6" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 6" loading="lazy" src="assets/carousel/6.jpg"/>
+        </a>
+        <a aria-label="Photo highlight 7" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 7" loading="lazy" src="assets/carousel/7.jpg"/>
+        </a>
+        <a aria-label="Photo highlight 8" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 8" loading="lazy" src="assets/carousel/8.jpg"/>
+        </a>
+        <a aria-label="Photo highlight 9" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 9" loading="lazy" src="assets/carousel/9.jpg"/>
+        </a>
+        <a aria-label="Photo highlight 10" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 10" loading="lazy" src="assets/carousel/10.jpeg"/>
+        </a>
+        <a aria-label="Photo highlight 11" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 11" loading="lazy" src="assets/carousel/11.jpg"/>
+        </a>
+        <a aria-label="Photo highlight 12" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 12" loading="lazy" src="assets/carousel/12.jpg"/>
+        </a>
+        <a aria-label="Photo highlight 13" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 13" loading="lazy" src="assets/carousel/13.png"/>
+        </a>
+    </div>
+</div>
+     <div aria-label="Photo highlights row two" class="photo-carousel reverse">
+    <div class="photo-carousel-track">
+        <a aria-label="Photo highlight 14" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 14" loading="lazy" src="assets/carousel/14.jpg"/>
+        </a>
+        <a aria-label="Photo highlight 15" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 15" loading="lazy" src="assets/carousel/15.jpg"/>
+        </a>
+        <a aria-label="Photo highlight 16" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 16" loading="lazy" src="assets/carousel/16.jpg"/>
+        </a>
+        <a aria-label="Photo highlight 17" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 17" loading="lazy" src="assets/carousel/17.jpg"/>
+        </a>
+        <a aria-label="Photo highlight 18" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 18" loading="lazy" src="assets/carousel/18.jpg"/>
+        </a>
+        <a aria-label="Photo highlight 19" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 19" loading="lazy" src="assets/carousel/19.jpg"/>
+        </a>
+        <a aria-label="Photo highlight 20" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 20" loading="lazy" src="assets/carousel/20.jpg"/>
+        </a>
+        <a aria-label="Photo highlight 21" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 21" loading="lazy" src="assets/carousel/21.jpg"/>
+        </a>
+        <a aria-label="Photo highlight 22" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 22" loading="lazy" src="assets/carousel/22.jpg"/>
+        </a>
+        <a aria-label="Photo highlight 23" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 23" loading="lazy" src="assets/carousel/23.jpg"/>
+        </a>
+        <a aria-label="Photo highlight 24" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 24" loading="lazy" src="assets/carousel/24.jpg"/>
+        </a>
+        <a aria-label="Photo highlight 25" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 25" loading="lazy" src="assets/carousel/25.jpg"/>
+        </a>
+        <a aria-label="Photo highlight 26" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 26" loading="lazy" src="assets/carousel/26.jpg"/>
+        </a>
+        <a aria-label="Photo highlight 27" class="photo-carousel-item" href="#">
+            <img alt="Photo highlight 27" loading="lazy" src="assets/carousel/27.jpg"/>
+        </a>
+    </div>
+</div>
+    </div>
+   </section>
+   <!-- PORTFOLIO: project cards, filters, and show more -->
+   <section class="section portfolio-section" id="work">
+    <div class="wrap">
+     <div class="section-head reveal">
+      <div>
+       <div class="eyebrow">
+        Selected work
+       </div>
+       <h2>
+        Projects with a purpose.
+       </h2>
+      </div>
+      <p>
+       Projects across work, competitions, and academia.
+      </p>
+     </div>
+     <div aria-label="Filter projects" class="filters reveal" role="group">
+      <button aria-pressed="true" class="filter-btn active" data-filter="all">
+       All projects
+      </button>
+      <button aria-pressed="false" class="filter-btn" data-filter="work">
+       Internship
+      </button>
+      <button aria-pressed="false" class="filter-btn" data-filter="hackathon">
+       Hackathons
+      </button>
+      <button aria-pressed="false" class="filter-btn" data-filter="uiux">
+       UI/UX Design
+      </button>
+      <button aria-pressed="false" class="filter-btn" data-filter="academic">
+       Academic Projects
+      </button>
+     </div>
+     <div class="project-grid">
+      
+      <!-- 02. BundaSehat -->
+<a href="bundasehat.html">
+  <article class="project-card" data-category="hackathon">
+    <div class="project-image">
+      <img
+        alt="BundaSehat project preview"
+        loading="lazy"
+        src="assets/portfolio/bundasehat.png"
+      />
+    </div>
+
+    <div class="project-meta">
+      <span>Maternal health &middot; Product discovery</span>
+      <span>&nearrow;</span>
+    </div>
+
+    <h3>BundaSehat</h3>
+
+    <p>
+      Pregnancy companion focused on daily check-ups, accessible health
+      education, and personalized insights.
+    </p>
+  </article>
+</a>
+
+      
+<!-- 03. Chattie -->
+<a href="chattie.html">
+  <article class="project-card" data-category="uiux">
+    <div class="project-image">
+      <img
+        alt="Chattie project preview"
+        loading="lazy"
+        src="assets/portfolio/chattie.png"
+      />
+    </div>
+
+    <div class="project-meta">
+      <span>Mental wellness &middot; Product design</span>
+      <span>&nearrow;</span>
+    </div>
+
+    <h3>Chattie</h3>
+
+    <p>
+      A mental health support platform with anonymous chat, guided journaling,
+      and accessible support.
+    </p>
+  </article>
+</a>
+
+<!-- 04. Nourish -->
+<a href="nourish.html">
+  <article class="project-card" data-category="hackathon">
+    <div class="project-image">
+      <img
+        alt="Nourish project preview"
+        loading="lazy"
+        src="assets/portfolio/nourish.png"
+      />
+    </div>
+
+    <div class="project-meta">
+      <span>Hackathon &middot; Product concept</span>
+      <span>&nearrow;</span>
+    </div>
+
+    <h3>Nourish</h3>
+
+    <p>A product concept developed for a hackathon.</p>
+  </article>
+</a>
+
+<!-- 09. BookQuest -->
+<a href="bookquest.html">
+  <article class="project-card extra-project" data-category="uiux">
+    <div class="project-image">
+      <img
+        alt="BookQuest project preview"
+        loading="lazy"
+        src="assets/portfolio/bookquest.png"
+      />
+    </div>
+
+    <div class="project-meta">
+      <span>Reading &middot; Product design</span>
+      <span>&nearrow;</span>
+    </div>
+
+    <h3>BookQuest</h3>
+
+    <p>
+      A book discovery concept designed to make finding the next read
+      more engaging.
+    </p>
+  </article>
+</a>
+
+<!-- 05. Dotto List -->
+<a href="dottolist.html">
+  <article class="project-card" data-category="academic">
+    <div class="project-image">
+      <img
+        alt="Dottolist project preview"
+        loading="lazy"
+        src="assets/portfolio/dottolist.png"
+      />
+    </div>
+
+    <div class="project-meta">
+      <span>Productivity &middot; Requirements</span>
+      <span>&nearrow;</span>
+    </div>
+
+    <h3>Dotto List</h3>
+
+    <p>
+      A collaborative task management platform with personal tasks, team
+      workflows, and dashboard analytics.
+    </p>
+  </article>
+</a>
+
+<!-- 06. Borma -->
+<a href="borma.html">
+  <article class="project-card extra-project" data-category="academic">
+    <div class="project-image">
+      <img
+        alt="Borma project preview"
+        loading="lazy"
+        src="assets/portfolio/borma.png"
+      />
+    </div>
+
+    <div class="project-meta">
+      <span>Retail &middot; Digital experience</span>
+      <span>&nearrow;</span>
+    </div>
+
+    <h3>Borma</h3>
+
+    <p>
+      A digital experience concept for a retail shopping journey.
+    </p>
+  </article>
+</a>
+
+<!-- 07. StoryShelf -->
+<a href="storyshelf.html">
+  <article class="project-card extra-project" data-category="academic">
+    <div class="project-image">
+      <img
+        alt="StoryShelf project preview"
+        loading="lazy"
+        src="assets/portfolio/storyshelf.png"
+      />
+    </div>
+
+    <div class="project-meta">
+      <span>Reading &middot; Product concept</span>
+      <span>&nearrow;</span>
+    </div>
+
+    <h3>StoryShelf</h3>
+
+    <p>
+      A reading-focused product concept built around discovering and
+      organizing stories.
+    </p>
+  </article>
+</a>
+
+<!-- 08. Findlet -->
+<a href="findlet.html">
+  <article class="project-card" data-category="academic">
+    <div class="project-image">
+      <img
+        alt="Findlet project preview"
+        loading="lazy"
+        src="assets/portfolio/findlet.png"
+      />
+    </div>
+
+    <div class="project-meta">
+      <span>Lost &amp; found &middot; Product strategy</span>
+      <span>&nearrow;</span>
+    </div>
+
+    <h3>Findlet</h3>
+
+    <p>
+      A wallet recovery platform designed around clear reporting, claiming,
+      and privacy-conscious workflows.
+    </p>
+  </article>
+</a>
+<!-- 01. Jajapp -->
+      <a href="#" class="project-card-link">
+      <article class="project-card" data-category="work">
+       <div class="project-image">
+        <img alt="Jajapp project preview" loading="lazy" src="assets/portfolio/jajapp.png"/>
+       </div>
+       <div class="project-meta">
+        <span>
+         Food delivery &middot; Product operations
+        </span>
+        <span>
+         &nearrow;
+        </span>
+       </div>
+       <h3>
+        Jajapp
+       </h3>
+       <p>
+        A food delivery product where I supported cross-functional delivery and coordinated work across product teams.
+       </p>
+      </article>
+      </a>
+    
+
+<!-- 10. Cobalt Protocol -->
+<a href="#" class="project-card-link">
+  <article class="project-card extra-project" data-category="hackathon">
+    <div class="project-image">
+      <img
+        alt="Cobalt Protocol project preview"
+        loading="lazy"
+        src="assets/portfolio/cobaltprotocol.png"
+      />
+    </div>
+
+    <div class="project-meta">
+      <span>Blockchain &middot; Product concept</span>
+      <span>&nearrow;</span>
+    </div>
+
+    <h3>Cobalt Protocol</h3>
+
+    <p>
+      A blockchain-based competition platform designed to secure prize
+      rewards before results are finalized.
+    </p>
+  </article>
+</a>
+
+<!-- 11. Inclusiflow -->
+<a href="#" class="project-card-link">
+  <article class="project-card extra-project" data-category="hackathon">
+    <div class="project-image">
+      <img
+        alt="Inclusiflow project preview"
+        loading="lazy"
+        src="assets/portfolio/inclusiflow.png"
+      />
+    </div>
+
+    <div class="project-meta">
+      <span>Hackathon proposal &middot; Product concept</span>
+      <span>&nearrow;</span>
+    </div>
+
+    <h3>Inclusiflow</h3>
+
+    <p>A product proposal developed for a hackathon.</p>
+  </article>
+</a>
+
+<!-- 12. Resora -->
+<a href="#" class="project-card-link">
+  <article class="project-card extra-project" data-category="hackathon">
+    <div class="project-image">
+      <img
+        alt="Resora project preview"
+        loading="lazy"
+        src="assets/portfolio/resora.png"
+      />
+    </div>
+
+    <div class="project-meta">
+      <span>Hackathon proposal &middot; Product concept</span>
+      <span>&nearrow;</span>
+    </div>
+
+    <h3>Resora</h3>
+
+    <p>A product proposal developed for a hackathon.</p>
+  </article>
+</a>
+
+<!-- 13. Kosyariah -->
+<a href="#" class="project-card-link">
+  <article class="project-card" data-category="academic">
+    <div class="project-image">
+      <img
+        alt="Kosyariah project preview"
+        loading="lazy"
+        src="assets/portfolio/kosyariah.png"
+      />
+    </div>
+
+    <div class="project-meta">
+      <span>Academic project &middot; Product concept</span>
+      <span>&nearrow;</span>
+    </div>
+
+    <h3>Kosyariah</h3>
+
+    <p>
+      An academic project exploring a digital product concept.
+    </p>
+  </article>
+</a>
+
+<!-- 14. Tiki -->
+<a href="tiki.html">
+  <article class="project-card extra-project" data-category="academic">
+    <div class="project-image">
+      <img
+        alt="Tiki project preview"
+        loading="lazy"
+        src="assets/portfolio/tiki.png"
+      />
+    </div>
+
+    <div class="project-meta">
+      <span>Course submission &middot; Product concept</span>
+      <span>&nearrow;</span>
+    </div>
+
+    <h3>Tiki</h3>
+
+    <p>
+      A digital product concept developed as part of a course submission.
+    </p>
+  </article>
+</a>
+
+     </div>
+     <div class="show-more-wrap">
+      <button aria-expanded="false" class="show-more-btn" id="showMoreProjects" type="button">
+       Show more
+       <span aria-hidden="true">
+        &darr;
+       </span>
+      </button>
+     </div>
+    </div>
+   </section>
+   <style>
+    #work .show-more-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+  }
+
+  #work .show-more-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 22px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--paper);
+    color: var(--ink);
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  #work .show-more-btn:hover {
+    background: var(--accent-light);
+    transform: translateY(-2px);
+  }
+
+  #work .show-more-btn span {
+    display: inline-block;
+    transition: transform 0.2s ease;
+  }
+
+  #work .show-more-btn[aria-expanded="true"] span {
+    transform: rotate(180deg);
+  }
+
+  #work .project-card[hidden],
+  #work .show-more-wrap[hidden],
+  #work .show-more-btn[hidden] {
+    display: none !important;
+  }
+
+  #work .project-card {
+    cursor: pointer;
+  }
+
+  #work .project-card:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 4px;
+  }
+
+  @media (max-width: 600px) {
+    #work .show-more-wrap {
+      margin-top: 20px;
+    }
+  }
+   </style>
+   <script>
+    (() => {
+  function initProjects() {
+    const section = document.querySelector('#work');
+    if (!section || section.dataset.initialized === 'true') return;
+
+    const cards = [...section.querySelectorAll('.project-card')];
+    const filters = [...section.querySelectorAll('.filter-btn')];
+    const button = section.querySelector('#showMoreProjects');
+
+    if (!button || !cards.length) return;
+    section.dataset.initialized = 'true';
+
+    let expanded = false;
+    let activeFilter = 'all';
+    const previewCount = 6;
+
+    // Projects still in progress show a notice; other cards keep href="#" placeholders.
+    const inProgressProjects = [
+      'Jajapp',
+      'Resora',
+      'Inclusiflow',
+      'Cobalt Protocol',
+      'Kosyariah'
+    ];
+
+    cards.forEach(card => {
+      const projectName = card.querySelector('h3')?.textContent.trim();
+      const link = card.closest('a.project-card-link');
+
+      if (link) link.setAttribute('href', '#');
+      card.setAttribute('tabindex', '0');
+
+      const showInProgress = () => {
+        if (!inProgressProjects.includes(projectName)) return;
+
+        const modal = document.getElementById('projectModal');
+        document.getElementById('modalCat').textContent = 'Project update';
+        document.getElementById('modalTitle').textContent = projectName;
+        document.getElementById('modalDesc').textContent =
+          'This particular project detail is in progress.';
+        document.getElementById('modalRole').textContent = '';
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        document.getElementById('modalClose').focus();
+      };
+
+      if (inProgressProjects.includes(projectName)) {
+        card.addEventListener('click', event => {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          showInProgress();
+        }, true);
+
+        card.addEventListener('keydown', event => {
+          if (event.key !== 'Enter' && event.key !== ' ') return;
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          showInProgress();
+        }, true);
+      }
+    });
+
+    function renderProjects() {
+      const matching = cards.filter(card =>
+        activeFilter === 'all' || card.dataset.category === activeFilter
+      );
+
+      cards.forEach(card => {
+        const index = matching.indexOf(card);
+        const shouldHide = index < 0 || (!expanded && index >= previewCount);
+        card.hidden = shouldHide;
+
+        // The grid item is the surrounding link, so hide it too.
+        const link = card.parentElement?.tagName === 'A'
+          ? card.parentElement
+          : card.closest('.project-grid > a');
+        if (link) link.hidden = shouldHide;
+      });
+
+      const hasMore = matching.length > previewCount;
+      button.hidden = !hasMore;
+      button.setAttribute('aria-expanded', String(expanded && hasMore));
+      button.innerHTML = expanded
+        ? 'Show less <span aria-hidden="true">↓</span>'
+        : 'Show more <span aria-hidden="true">↓</span>';
+    }
+
+    button.addEventListener('click', () => {
+      const wasExpanded = expanded;
+      expanded = !expanded;
+      renderProjects();
+
+      if (wasExpanded) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+
+    filters.forEach(filter => {
+      filter.addEventListener('click', () => {
+        activeFilter = filter.dataset.filter;
+        expanded = false;
+
+        filters.forEach(item => {
+          const active = item === filter;
+          item.classList.toggle('active', active);
+          item.setAttribute('aria-pressed', String(active));
+        });
+
+        renderProjects();
+      });
+    });
+
+    renderProjects();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initProjects);
+  } else {
+    initProjects();
+  }
+})();
+   </script>
+   <!-- EXPERIENCE SECTION -->
+   <section class="wrap section" id="experience">
+    <div class="section-head reveal">
+     <div>
+      <div class="eyebrow">
+       Experience
+      </div>
+      <h2>
+       Where I've made an impact.
+      </h2>
+     </div>
+     <p>
+      A glimpse of recent my leadership experience.
+     </p>
+    </div>
+    <div class="experience-grid">
+     <!-- GENERATION GIRL -->
+     <article class="experience-card reveal">
+      <div class="experience-top">
+       <div>
+        <h3>
+         Chapter Lead
+        </h3>
+        <p class="experience-company">
+         Generation Girl Bandung
+        </p>
+       </div>
+       <span class="experience-date">
+        Sep 2026 &ndash; Present
+       </span>
+      </div>
+      <ul class="experience-points">
+       <li>
+        Lead a team of 14 members across 5 divisions to coordinate
+          community programs and chapter initiatives.
+       </li>
+       <li>
+        Increased social media views by 77% and non-follower views
+          by 57% through content and community initiatives.
+       </li>
+       <li>
+        Coordinate with schools, mentors, sponsors, and partners
+          to expand outreach and program opportunities.
+       </li>
+      </ul>
+      <div class="experience-tags">
+       <span class="skill">
+        Leadership
+       </span>
+       <span class="skill">
+        Community Growth
+       </span>
+       <span class="skill">
+        Social Media Strategy
+       </span>
+       <span class="skill">
+        Partnership
+       </span>
+      </div>
+     </article>
+     <!-- ASSISTANT PROJECT MANAGER INTERN -->
+     <article class="experience-card reveal">
+      <div class="experience-top">
+       <div>
+        <h3>
+         Assistant Project Manager
+        </h3>
+        <p class="experience-company">
+         Pansus Studio
+        </p>
+       </div>
+       <span class="experience-date">
+        Apr 2026 &ndash; Aug 2026
+       </span>
+      </div>
+      <ul class="experience-points">
+       <li>
+        Led Agile ceremonies across 3 concurrent mobile app projects,
+          resolving cross-team blockers to maintain strict delivery timelines.
+       </li>
+       <li>
+        Managed task prioritization and workload allocation,
+          proactively flagging risks to stakeholders to achieve 80% on-time sprint delivery.
+       </li>
+       <li>
+        Directed mobile app closed testing with 20+ testers over 14 days and
+          release preparation using Google Play Console.
+       </li>
+      </ul>
+      <div class="experience-tags">
+       <span class="skill">
+        Agile
+       </span>
+       <span class="skill">
+        Scrum
+       </span>
+       <span class="skill">
+        Task Prioritization
+       </span>
+       <span class="skill">
+        Risk Management
+       </span>
+       <span class="skill">
+        Product Delivery
+       </span>
+      </div>
+     </article>
+    </div>
+   </section>
+   <!-- ACHIEVEMENTS: click a card to open its certificate gallery. -->
+   <section class="wrap section" id="achievements">
+    <div class="section-head reveal">
+     <div>
+      <div class="eyebrow">
+       Recognition
+      </div>
+      <h2>
+       Achievements worth celebrating.
+      </h2>
+     </div>
+     <p>
+      Notable milestones and award-winning projects.
+     </p>
+    </div>
+    <div class="achievement-grid">
+     <!-- 1. ASNC English Speech -->
+     <button class="achievement-card reveal" data-achievement="1st Place of English Speech" data-detail="UIN Sunan Gunung Djati Bandung &middot; National &middot; 2026" data-images='["assets/achievements/asnc1a.png","assets/achievements/asnc1b.jpg"]' type="button">
+      <div class="date">
+       2026 &middot; Annual SAEED National Competition
+      </div>
+      <h3>
+       1st Place of English Speech
+      </h3>
+      <p>
+       UIN Sunan Gunung Djati Bandung &middot; National
+      </p>
+      <span class="view-gallery">
+       View gallery &rarr;
+      </span>
+     </button>
+     <!-- 2. Hackfest UI/UX Design -->
+     <button class="achievement-card reveal" data-achievement="Finalist of UI/UX Design" data-detail="Universitas Ciputra Surabaya &middot; International &middot; 2026" data-images='["assets/achievements/hackfest1a.jpg","assets/achievements/hackfest1b.jpg"]' type="button">
+      <div class="date">
+       2026 &middot; Hackfest
+      </div>
+      <h3>
+       Finalist of UI/UX Design
+      </h3>
+      <p>
+       Universitas Ciputra Surabaya &middot; International
+      </p>
+      <span class="view-gallery">
+       View gallery &rarr;
+      </span>
+     </button>
+     <!-- 3. HackHERthon -->
+     <button class="achievement-card reveal" data-achievement="2nd Place of Hackathon" data-detail="Generation Girl Tangerang &middot; National &middot; 2025" data-images='["assets/achievements/hackherthon1a.png","assets/achievements/hackherthon1b.jpg"]' type="button">
+      <div class="date">
+       2025 &middot; HackHERthon
+      </div>
+      <h3>
+       2nd Place of Hackathon
+      </h3>
+      <p>
+       Generation Girl Tangerang &middot; National
+      </p>
+      <span class="view-gallery">
+       View gallery &rarr;
+      </span>
+     </button>
+     <!-- 4. Electives UI/UX Series -->
+     <button class="achievement-card reveal" data-achievement="Best Problem Solving Design" data-detail="Generation Girl Tangerang &middot; National &middot; 2025" data-images='["assets/achievements/uiux1a.png","assets/achievements/uiux1b.png"]' type="button">
+      <div class="date">
+       2025 &middot; Electives UI/UX Series
+      </div>
+      <h3>
+       Best Problem Solving Design
+      </h3>
+      <p>
+       Generation Girl Tangerang &middot; National
+      </p>
+      <span class="view-gallery">
+       View gallery &rarr;
+      </span>
+     </button>
+     <!-- 5. Electives Data Series -->
+     <button class="achievement-card reveal" data-achievement="Best Presentation &mdash; Data Analytics" data-detail="Generation Girl Tangerang &middot; National &middot; 2025" data-images='["assets/achievements/data1a.png","assets/achievements/data1b.jpg"]' type="button">
+      <div class="date">
+       2025 &middot; Electives Data Series
+      </div>
+      <h3>
+       Best Presentation &mdash; Data Analytics
+      </h3>
+      <p>
+       Generation Girl Tangerang &middot; National
+      </p>
+      <span class="view-gallery">
+       View gallery &rarr;
+      </span>
+     </button>
+     <!-- 6. PEC English Speech -->
+     <button class="achievement-card reveal" data-achievement="Finalist of English Speech" data-detail="Universitas Padjadjaran &middot; International &middot; 2025" data-images='["assets/achievements/pec1a.png","assets/achievements/pec1b.jpg"]' type="button">
+      <div class="date">
+       2025 &middot; Padjadjaran English Competition
+      </div>
+      <h3>
+       Finalist of English Speech
+      </h3>
+      <p>
+       Universitas Padjadjaran &middot; International
+      </p>
+      <span class="view-gallery">
+       View gallery &rarr;
+      </span>
+     </button>
+     <!-- 7. UIN SGD English Speech 2025 -->
+     <button class="achievement-card reveal" data-achievement="2nd Place English Speech" data-detail="UIN Sunan Gunung Djati &middot; National &middot; 2025" data-images='["assets/achievements/asnc2a.png","assets/achievements/asnc2b.jpg"]' type="button">
+      <div class="date">
+       2025 &middot; Annual SAEED National Competition
+      </div>
+      <h3>
+       2nd Place of English Speech
+      </h3>
+      <p>
+       UIN Sunan Gunung Djati &middot; National
+      </p>
+      <span class="view-gallery">
+       View gallery &rarr;
+      </span>
+     </button>
+     <!-- 8. Unpad English Speech 2022 -->
+     <button class="achievement-card reveal" data-achievement="Finalist of English Speech" data-detail="Universitas Padjadjaran &middot; National &middot; 2022" data-images='["assets/achievements/pec2a.jpeg"]' type="button">
+      <div class="date">
+       2022 &middot; Padjadjaran English Competition
+      </div>
+      <h3>
+       Finalist of English Speech
+      </h3>
+      <p>
+       Universitas Padjadjaran &middot; National
+      </p>
+      <span class="view-gallery">
+       View gallery &rarr;
+      </span>
+     </button>
+     <!-- 9. SMA IT Abu Bakar English Speech 2021 -->
+     <button class="achievement-card reveal" data-achievement="1st Place English Speech" data-detail="SMA IT Abu Bakar Yogyakarta &middot; National &middot; 2021" data-images='["assets/achievements/abubakar1.jpg"]' type="button">
+      <div class="date">
+       2021 &middot; English Speech Competition
+      </div>
+      <h3>
+       1st Place of English Speech
+      </h3>
+      <p>
+       SMA IT Abu Bakar Yogyakarta &middot; National
+      </p>
+      <span class="view-gallery">
+       View gallery &rarr;
+      </span>
+     </button>
+     <!-- 10. STIE Surakarta English Speech 2021 -->
+     <button class="achievement-card reveal" data-achievement="3rd Place English Speech" data-detail="STIE Surakarta &middot; National &middot; 2021" data-images='["assets/achievements/stie1.jpg"]' type="button">
+      <div class="date">
+       2021 &middot; English Speech Competition
+      </div>
+      <h3>
+       3rd Place of English Speech
+      </h3>
+      <p>
+       STIE Surakarta &middot; National
+      </p>
+      <span class="view-gallery">
+       View gallery &rarr;
+      </span>
+     </button>
+     <!-- 11. Erlangga Group English Speech 2020 -->
+     <button class="achievement-card reveal" data-achievement="Top 10 English Speech" data-detail="Erlangga Group &middot; Provincial &middot; 2020" data-images='["assets/achievements/erlangga1a.jpeg","assets/achievements/erlangga1b.jpg"]' type="button">
+      <div class="date">
+       2020 &middot; English Speech Competition
+      </div>
+      <h3>
+       Top 10 Finalist of English Speech
+      </h3>
+      <p>
+       Erlangga Group &middot; Provincial
+      </p>
+      <span class="view-gallery">
+       View gallery &rarr;
+      </span>
+     </button>
+     <!-- 12. Universitas Putra Indonesia English Speech 2020 -->
+     <button class="achievement-card reveal" data-achievement="Top 5 English Speech" data-detail="Universitas Putra Indonesia &middot; Regency &middot; 2020" data-images='["assets/achievements/unpi1.jpg"]' type="button">
+      <div class="date">
+       2020 &middot; English Speech Competition
+      </div>
+      <h3>
+       Top 5 Finalist of English Speech
+      </h3>
+      <p>
+       Universitas Putra Indonesia &middot; Regency
+      </p>
+      <span class="view-gallery">
+       View gallery &rarr;
+      </span>
+     </button>
+     <!-- 13. Vocational English Teacher Association Presentation 2019 -->
+     <button class="achievement-card reveal" data-achievement="3rd Place English Presentation" data-detail="Vocational English Teacher Association &middot; Regency &middot; 2019" data-images='["assets/achievements/veta2a.jpg","assets/achievements/veta2b.jpg"]' type="button">
+      <div class="date">
+       2019 &middot; VETA CUP
+      </div>
+      <h3>
+       3rd Place of English Presentation
+      </h3>
+      <p>
+       Vocational English Teacher Association &middot; Regency
+      </p>
+      <span class="view-gallery">
+       View gallery &rarr;
+      </span>
+     </button>
+     <!-- 14. UIN SGD English Paper Presentation 2019 -->
+     <button class="achievement-card reveal" data-achievement="2nd Place English Paper Presentation" data-detail="UIN Sunan Gunung Djati &middot; National &middot; 2019" data-images='["assets/achievements/asnc3a.jpeg","assets/achievements/asnc3b.jpg"]' type="button">
+      <div class="date">
+       2019 &middot; ANNUAL SAEED NATIONAL COMPETITION
+      </div>
+      <h3>
+       2nd Place of English Paper Presentation
+      </h3>
+      <p>
+       UIN Sunan Gunung Djati Bandung &middot; National
+      </p>
+      <span class="view-gallery">
+       View gallery &rarr;
+      </span>
+     </button>
+     <!-- 15. MGMP PAI Islamic Debate 2019 -->
+     <button class="achievement-card reveal" data-achievement="3rd Place Islamic Debate" data-detail="MGMP PAI &middot; Regency &middot; 2019" data-images='["assets/achievements/debate1.jpg"]' type="button">
+      <div class="date">
+       2019 &middot; Islamic Religious Education Debate
+      </div>
+      <h3>
+       3rd Place of Islamic Debate
+      </h3>
+      <p>
+       MGMP PAI &middot; Regency
+      </p>
+      <span class="view-gallery">
+       View gallery &rarr;
+      </span>
+     </button>
+     <!-- 16. Vocational English Teacher Association Presentation 2018 -->
+     <button class="achievement-card reveal" data-achievement="1st Place English Presentation" data-detail="Vocational English Teacher Association &middot; Regency &middot; 2018" data-images='["assets/achievements/veta1a.jpg","assets/achievements/veta1b.jpg","assets/achievements/veta1c.jpg"]' type="button">
+      <div class="date">
+       2018 &middot; VETA CUP
+      </div>
+      <h3>
+       1st Place of English Presentation
+      </h3>
+      <p>
+       Vocational English Teacher Association &middot; Regency
+      </p>
+      <span class="view-gallery">
+       View gallery &rarr;
+      </span>
+     </button>
+    </div>
+    <!-- Show More -->
+    <div class="achievement-show-more">
+     <button aria-expanded="false" class="show-more-btn" id="showMoreAchievements" type="button">
+      Show More &darr;
+     </button>
+    </div>
+   </section>
+   <style>
+    /* Achievement Show More — matching Project button */
+#achievements .achievement-show-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+#achievements .show-more-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border: 1px solid var(--line, #e5e0d8);
+  border-radius: 999px;
+  background: var(--paper, #fffdf9);
+  color: var(--ink, #292720);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+#achievements .show-more-btn:hover {
+  background: var(--accent-light, #f8edb8);
+  transform: translateY(-2px);
+}
+
+#achievements .show-more-btn:focus-visible {
+  outline: 2px solid var(--accent, #d8b84c);
+  outline-offset: 4px;
+}
+
+#achievements .achievement-show-more[hidden],
+#achievements .show-more-btn[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 600px) {
+  #achievements .achievement-show-more {
+    margin-top: 20px;
+  }
+}
+
+
+  .credentials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .credential-card {
+    min-width: 0;
+    padding: 22px;
+    border: 1px solid var(--border, #e5e0d8);
+    border-radius: 18px;
+    background: var(--card, #fffdf9);
+  }
+
+  .credential-card h3 {
+    margin: 0 0 16px;
+    font-size: 1.1rem;
+  }
+
+  .education-card {
+    grid-column: 1 / -1;
+  }
+
+  .education-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .education-top h3 {
+    margin: 0 0 5px;
+  }
+
+  .education-degree {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .education-date {
+    font-size: 0.82rem;
+    opacity: 0.7;
+    white-space: nowrap;
+  }
+
+  .education-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    margin-top: 12px;
+    font-size: 0.84rem;
+  }
+
+  .education-gpa {
+    padding: 5px 9px;
+    border-radius: 7px;
+    background: var(--surface-secondary, #f1eee8);
+    font-weight: 600;
+  }
+
+  .education-achievement {
+    line-height: 1.5;
+  }
+
+  .education-coursework {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border, #e5e0d8);
+  }
+
+  .education-coursework-title {
+    margin-bottom: 10px;
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+
+  .coursework-tags,
+  .credential-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .coursework-tag {
+    display: inline-flex;
+    padding: 6px 10px;
+    border: 1px solid var(--border, #e5e0d8);
+    border-radius: 7px;
+    font-size: 0.78rem;
+    line-height: 1.35;
+  }
+
+  .credential-item {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border, #e5e0d8);
+  }
+
+  .credential-item:first-of-type {
+    padding-top: 0;
+  }
+
+  .credential-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .credential-item strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .credential-item p {
+    margin: 0;
+    font-size: 0.84rem;
+    line-height: 1.6;
+  }
+
+  .credential-tags .skill {
+    font-size: 0.78rem;
+  }
+
+  @media (max-width: 600px) {
+    .credentials-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .education-card {
+      grid-column: auto;
+    }
+
+    .credential-card {
+      padding: 18px;
+    }
+
+    .education-top {
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+   </style>
+   <script>
+    (() => {
+    function initAchievementShowMore() {
+      const section = document.getElementById("achievements");
+      if (!section || section.dataset.showMoreInitialized === "true") return;
+
+      const grid = section.querySelector(".achievement-grid");
+      const button = section.querySelector("#showMoreAchievements");
+
+      if (!grid || !button) return;
+
+      section.dataset.showMoreInitialized = "true";
+
+      const cards = Array.from(
+        grid.querySelectorAll(".achievement-card")
+      );
+
+      const previewCount = 6;
+      let expanded = false;
+
+      function updateAchievements() {
+        cards.forEach((card, index) => {
+          card.hidden = !expanded && index >= previewCount;
+        });
+
+        button.textContent = expanded ? "Show Less ↑" : "Show More ↓";
+        button.setAttribute("aria-expanded", String(expanded));
+        button.hidden = cards.length <= previewCount;
+      }
+
+      button.addEventListener("click", () => {
+        expanded = !expanded;
+        updateAchievements();
+
+        if (!expanded) {
+          section.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }
+      });
+
+      updateAchievements();
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener(
+        "DOMContentLoaded",
+        initAchievementShowMore
+      );
+    } else {
+      initAchievementShowMore();
+    }
+  })();
+   </script>
+   <!-- EDUCATION, CERTIFICATION & SKILLSET -->
+   <section class="wrap section" id="credentials">
+    <div class="section-head reveal">
+     <div>
+      <div class="eyebrow">
+       Education &amp; skills
+      </div>
+      <h2>
+       Beyond experience.
+      </h2>
+     </div>
+     <p>
+      The academic foundation, credentials, and toolkit.
+     </p>
+    </div>
+    <div class="credentials-grid">
+     <!-- EDUCATION: FULL WIDTH -->
+     <article class="credential-card education-card reveal" id="education">
+      <div class="education-top">
+       <div>
+        <h3>
+         Universitas Sangga Buana
+        </h3>
+        <p class="education-degree">
+         Undergraduate of Information Systems
+        </p>
+       </div>
+       <span class="education-date">
+        Oct 2023 &ndash; Present
+       </span>
+      </div>
+      <div class="education-meta">
+       <span class="education-gpa">
+        GPA: 4.00/4.00
+       </span>
+       <span class="education-achievement">
+        <strong>
+         Top 10 Outstanding Students 2026
+        </strong>
+        ,
+          University-Level
+       </span>
+      </div>
+      <div class="education-coursework">
+       <div class="education-coursework-title">
+        Relevant Coursework
+       </div>
+       <div class="coursework-tags">
+        <span class="coursework-tag">
+         Project Management
+        </span>
+        <span class="coursework-tag">
+         Applied Statistics
+        </span>
+        <span class="coursework-tag">
+         Business Intelligence
+        </span>
+        <span class="coursework-tag">
+         Big Data
+        </span>
+        <span class="coursework-tag">
+         Data Analytics
+        </span>
+        <span class="coursework-tag">
+         UI &amp; UX Design
+        </span>
+        <span class="coursework-tag">
+         Human-Computer Interaction
+        </span>
+        <span class="coursework-tag">
+         Software Development
+        </span>
+       </div>
+      </div>
+     </article>
+     <!-- CERTIFICATIONS: BOTTOM LEFT -->
+     <article class="credential-card reveal" id="certification">
+      <h3>
+       Certifications
+      </h3>
+      <div class="credential-item">
+       <strong>
+        IBM Systems Analyst Professional Certificate
+       </strong>
+       <p>
+        Grade: 96.85
+       </p>
+      </div>
+      <div class="credential-item">
+       <strong>
+        Duolingo English Test
+       </strong>
+       <p>
+        Score: 130 &middot; C1
+       </p>
+      </div>
+      <div class="credential-item">
+       <strong>
+        TOEIC Listening &amp; Reading
+       </strong>
+       <p>
+        Score: 575
+       </p>
+      </div>
+     </article>
+     <!-- SKILLSET: BOTTOM RIGHT -->
+     <article class="credential-card reveal" id="skillset">
+      <h3>
+       Skillset
+      </h3>
+      <div class="credential-item">
+       <strong>
+        Product Management
+       </strong>
+       <div class="credential-tags">
+        <span class="skill">
+         Product Discovery
+        </span>
+        <span class="skill">
+         PRD
+        </span>
+        <span class="skill">
+         Product Roadmap
+        </span>
+        <span class="skill">
+         Sprint Ceremonies
+        </span>
+        <span class="skill">
+         Agile
+        </span>
+        <span class="skill">
+         Scrum
+        </span>
+        <span class="skill">
+         User Research
+        </span>
+        <span class="skill">
+         Wireframing
+        </span>
+        <span class="skill">
+         Prototyping
+        </span>
+        <span class="skill">
+         UML Diagramming
+        </span>
+       </div>
+      </div>
+      <div class="credential-item">
+       <strong>
+        Tools &amp; Methods
+       </strong>
+       <div class="credential-tags">
+        <span class="skill">
+         ClickUp
+        </span>
+        <span class="skill">
+         Notion
+        </span>
+        <span class="skill">
+         Trello
+        </span>
+        <span class="skill">
+         Figma
+        </span>
+        <span class="skill">
+         Google Workspace
+        </span>
+        <span class="skill">
+         SQL
+        </span>
+        <span class="skill">
+         Miro
+        </span>
+        <span class="skill">
+         Whimsical
+        </span>
+        <span class="skill">
+         Lucidchart
+        </span>
+        <span class="skill">
+         Microsoft Office
+        </span>
+        <span class="skill">
+         Canva
+        </span>
+        <span class="skill">
+         Tableau
+        </span>
+       </div>
+      </div>
+     </article>
+    </div>
+   </section>
+   <!-- CONTACT: update the email/link here if your contact details change. -->
+   <section class="wrap section" id="contact">
+    <div class="contact reveal">
+     <div>
+      <div class="eyebrow">
+       Have a product challenge?
+      </div>
+      <h2>
+       Let's build something
+       <br/>
+       meaningful and thoughtful.
+      </h2>
+      <p>
+       I'm open to connecting with product teams, learning opportunities, and conversations about building better products.
+      </p>
+     </div>
+     <a class="button" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=najmanoorfitri14@gmail.com" rel="noopener noreferrer" target="_blank">
+      Get in touch &nearrow;
+     </a>
+    </div>
+   </section>
+  </main>
+  <!-- FOOTER -->
+  <footer>
+   <div class="wrap footer-inner">
+    <span>
+     &copy;
+     <span id="year">
+     </span>
+     Najma Noorfitri Syarifah
+    </span>
+    <a href="#home">
+     Back to top &uarr;
+    </a>
+   </div>
+  </footer>
+  <!-- INTERACTION: project detail modal. Content is filled by JavaScript below. -->
+  <div aria-labelledby="modalTitle" aria-modal="true" class="modal-backdrop" id="projectModal" role="dialog">
+   <div class="modal">
+    <button aria-label="Close project details" class="modal-close" id="modalClose">
+     &times;
+    </button>
+    <div class="eyebrow" id="modalCat">
+     Project details
+    </div>
+    <h3 id="modalTitle">
+     Project
+    </h3>
+    <p id="modalDesc">
+    </p>
+    <span class="modal-role" id="modalRole">
+    </span>
+    <p style="margin:22px 0 0;font-size:.82rem">
+     Explore the full case study through the portfolio project page when available.
+    </p>
+   </div>
+  </div>
+  <!-- INTERACTION: achievement certificate carousel. -->
+  <div aria-labelledby="galleryTitle" aria-modal="true" class="gallery-modal" id="achievementGallery" role="dialog">
+   <div class="gallery-dialog">
+    <div class="gallery-head">
+     <div>
+      <h3 id="galleryTitle">
+       Achievement gallery
+      </h3>
+      <p id="galleryDetail">
+       Scroll to browse images
+      </p>
+     </div>
+     <button aria-label="Close gallery" class="gallery-close" id="galleryClose">
+      &times;
+     </button>
+    </div>
+    <div class="gallery-stage">
+     <button aria-label="Previous certificate image" class="gallery-arrow prev" id="galleryPrev" type="button">
+      &lsaquo;
+     </button>
+     <div aria-label="Achievement image carousel" aria-live="polite" class="gallery-track" id="galleryTrack">
+     </div>
+     <button aria-label="Next certificate image" class="gallery-arrow next" id="galleryNext" type="button">
+      &rsaquo;
+     </button>
+    </div>
+    <div class="gallery-controls">
+     <span class="gallery-hint" id="galleryCount">
+      Image 1 of 4
+     </span>
+    </div>
+   </div>
+  </div>
+  <!-- INTERACTIONS: mobile navigation, project filters/modals, achievement gallery, and scroll effects. -->
+  <script>
+   const menuToggle=document.getElementById('menuToggle'),navLinks=document.getElementById('navLinks');
+const achievementGallery=document.getElementById('achievementGallery'),galleryTrack=document.getElementById('galleryTrack');
+const galleryClose=document.getElementById('galleryClose');
+let galleryImages=[],galleryIndex=0;
+function renderGalleryImage(){
+ galleryTrack.innerHTML='';
+ const img=document.createElement('img');
+ img.alt=(document.getElementById('galleryTitle').textContent||'Achievement')+' certificate placeholder '+(galleryIndex+1);
+ img.src = galleryImages[galleryIndex];
+ galleryTrack.appendChild(img);
+ document.getElementById('galleryCount').textContent=`Image ${galleryIndex+1} of ${galleryImages.length}`;
+ document.getElementById('galleryPrev').disabled=galleryIndex===0;
+ document.getElementById('galleryNext').disabled=galleryIndex===galleryImages.length-1;
+}
+function openAchievement(card){
+ document.getElementById('galleryTitle').textContent=card.dataset.achievement;
+ document.getElementById('galleryDetail').textContent=card.dataset.detail;
+ // Update each achievement card's data-images attribute to change its certificate images.
+ galleryImages = JSON.parse(card.dataset.images || '[]');
+ galleryIndex = 0;
+ renderGalleryImage();achievementGallery.classList.add('open');document.body.style.overflow='hidden';galleryClose.focus();
+}
+function closeAchievement(){achievementGallery.classList.remove('open');document.body.style.overflow=''}
+function stepGallery(direction){galleryIndex=Math.max(0,Math.min(galleryImages.length-1,galleryIndex+direction));renderGalleryImage()}
+document.querySelectorAll('.achievement-card').forEach(card=>card.addEventListener('click',()=>openAchievement(card)));
+galleryClose.addEventListener('click',closeAchievement);achievementGallery.addEventListener('click',e=>{if(e.target===achievementGallery)closeAchievement()});
+document.getElementById('galleryPrev').addEventListener('click',()=>stepGallery(-1));
+document.getElementById('galleryNext').addEventListener('click',()=>stepGallery(1));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAchievement();if(achievementGallery.classList.contains('open')&&e.key==='ArrowLeft')stepGallery(-1);if(achievementGallery.classList.contains('open')&&e.key==='ArrowRight')stepGallery(1)});
+
+menuToggle.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(open));menuToggle.textContent=open?'×':'☰'});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.textContent='☰'}));
+/* Project filtering is handled by initProjects() above so filtering and Show More
+   share one state instead of competing event listeners. */
+const modal=document.getElementById('projectModal'),closeBtn=document.getElementById('modalClose');
+function openProject(card){document.getElementById('modalTitle').textContent=card.dataset.title;document.getElementById('modalDesc').textContent=card.dataset.desc;document.getElementById('modalRole').textContent=card.dataset.role;document.getElementById('modalCat').textContent=card.dataset.cat;modal.classList.add('open');document.body.style.overflow='hidden';closeBtn.focus()}
+function closeProject(){modal.classList.remove('open');document.body.style.overflow=''}
+
+closeBtn.addEventListener('click',closeProject);modal.addEventListener('click',e=>{if(e.target===modal)closeProject()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeProject()});
+document.getElementById('year').textContent=new Date().getFullYear();
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+const sections=[...document.querySelectorAll('main section[id]')],links=[...navLinks.querySelectorAll('a')];window.addEventListener('scroll',()=>{let current='home';sections.forEach(s=>{if(window.scrollY>=s.offsetTop-130)current=s.id});links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current))},{passive:true});
+  </script>
+ </body>
+</html>
